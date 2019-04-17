@@ -9,5 +9,12 @@ function URLvalidator(url){
 	}
 	function AddPicture(){
 	  var user_url = ($('image-url').value);
-	  alert(URLvalidator(user_url));
+	  if(validateURL(user_url)){
+	    img.src = user_url;
+	    img.className = "Head-img";
+	    $('planning-area').appendChild(img);
+	  }
+	  else{
+	    $('url-error').classList.toggle("alert");
+	  }
 	}
