@@ -1,3 +1,7 @@
+"use strict";	
+document.getElementById("add-btn").addEventListener("click", AddPhoto);
+document.getElementById("delete-btn").addEventListener("click", DeletePhoto);
+
 function URLvalidator(url){
 	var regex = new RegExp('^(https?:\\/\\/)?'+
 	    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+
@@ -11,8 +15,10 @@ function URLvalidator(url){
 	  var user_url = ($('image-url').value);
 	  if(validateURL(user_url)){
 	    img.src = user_url;
-	    img.className = "Head-img";
+	    img.className = "planning-img";
+		img.id = "img_" + document.getElementsByTagName("img").length;
 	    $('planning-area').appendChild(img);
+		$('image-url').value = '';
 	  }
 	  else{
 	    $('url-error').classList.toggle("alert");
@@ -35,3 +41,18 @@ function DeletePhoto(){
 	    remove_img = GrabImage(remove_url);
 	    $('planning-area').removeChild(remove_img);
 	  }
+	$('image-url').value = '';
+	  }
+	  else{
+	    $('url-error').classList.toggle("alert");
+	  }
+	}
+	var getImageURL = function() {
+	  document.onclick = function(e) {
+	    if (e.target.tagName == 'IMG') {
+	      var image = e.target.getAttribute("src");
+	      $('image-url').value = image;
+	    }
+	  }
+	}
+	getImageURL()
