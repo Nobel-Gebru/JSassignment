@@ -1,0 +1,16 @@
+{
+   display: none;
+ }
+.alert{
+   display: block !important;
+   color: green;
+ }
+ .planning-area{
+   display: flex;
+   flex-wrap: wrap;
+ }
+ .planning-img{
+   max-width: 50px;
+   max-height: 50px;
+
+  }
