@@ -18,3 +18,13 @@ function URLvalidator(url){
 	    $('url-error').classList.toggle("alert");
 	  }
 	}
+
+function GrabImage(delete_url){
+	  var imgs = document.getElementsByTagName("img");
+	  for( var i=0; i<imgs.length; i++){
+	    if(imgs[i].src == delete_url){
+	      return imgs[i];
+	    }
+	  }
+	  return NULL;
+	}
