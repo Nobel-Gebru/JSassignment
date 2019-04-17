@@ -28,3 +28,10 @@ function GrabImage(delete_url){
 	  }
 	  return NULL;
 	}
+function DeletePhoto(){
+	  var remove_url = ($('image-url').value);
+	  var remove_img;
+	  if(validateURL(remove_url)){
+	    remove_img = GrabImage(remove_url);
+	    $('planning-area').removeChild(remove_img);
+	  }
